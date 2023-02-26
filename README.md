@@ -1,20 +1,20 @@
-#Bibliothèque Symfony 6.2
+# Bibliothèque Symfony 6.2
 Projet d'étude réalisé avec Symfony 6.2 pour gérer une bibliothèque en ligne.
 
-##Description
+## Description
 L'application permet de gérer les utilisateurs, les auteurs, les livres et les emprunts d'une bibliothèque en ligne.
 
-##Fonctionnalités
+## Fonctionnalités
 - Création, édition et suppression d'utilisateurs
 - Création, édition et suppression d'auteurs
 - Création, édition et suppression de livres
 - Gestion des emprunts de livres
-##Configuration requise
+## Configuration requise
 - PHP 8.0 ou supérieur
 - MySQL 5.7 ou supérieur
 - Apache 2.4 ou supérieur
 - Composer
-##Installation
+## Installation
 1. Clonez le projet depuis GitHub
 2. Installez les dépendances avec la commande composer install
 3. Configurez la base de données dans le fichier .env :
