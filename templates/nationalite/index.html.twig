@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nationalite index{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>Nationalite index</h1>
+
+		<div class="navigation">
+			{{ knp_pagination_render(nationalites) }}
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Code</th>
+					<th>Drapeau</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for nationalite in nationalites %}
+				<tr>
+					<td>{{ nationalite.code|country_name }}</td>
+					<td>{{ nationalite.code }}</td>
+                	<td><span class="fi fi-{{ nationalite.code|lower }}"></span></td>
+					
+					<td>
+						<a class="btn btn-primary" href="{{ path('app_nationalite_show', {'id': nationalite.id}) }}">Voir</a>
+						{% if is_granted('ROLE_ADMIN') %}
+							<a class="btn btn-warning" href="{{ path('app_nationalite_edit', {'id': nationalite.id}) }}">Modifier</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Aucun élément existant</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<a class="btn btn-success" href="{{ path('app_nationalite_new') }}">Ajouter un nouveau</a>
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<header class="p-3 text-bg-dark mb-4">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+			<li ><a href="{{ path('app_livre_index') }}" {% if app.request.attributes.get('_route') starts with 'app_livre' %}class="nav-link px-2 text-white" {% else %} class="nav-link px-2 text-secondary" {% endif %} >Livres</a></li>
+			<li><a href="{{ path('app_auteur_index') }}" {% if app.request.attributes.get('_route') starts with 'app_auteur' %} class="nav-link px-2 text-white" {% else %} class="nav-link px-2 text-secondary" {% endif %}>Auteurs</a></li>
+			{% if is_granted('ROLE_ADMIN') %}
+				<li><a href="{{ path('app_nationalite_index') }}" {% if app.request.attributes.get('_route') starts with 'app_nationalite' %} class="nav-link px-2 text-white" {% else %} class="nav-link px-2 text-secondary" {% endif %}>Nationalités</a></li>
+			{% endif %}
+		</ul>
+
+
+        <div class="text-end">
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        		<a href="{{ path('app_logout') }}" type="button" class="btn btn-outline-light me-2">Se déconnecter</a>
+			{% else %}
+        		<a href="{{ path('app_login') }}" type="button" class="btn btn-outline-light me-2">Se connecter</a>
+        		<a href="{{ path('app_register') }}" type="button" class="btn btn-warning">Créer un compte</a>
+			{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>

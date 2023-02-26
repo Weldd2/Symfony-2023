@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nationalite{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Nationalite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nationalite.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ nationalite.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary mb-4" href="{{ path('app_nationalite_index') }}">Retour à la liste</a>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a class="btn btn-warning mb-4" href="{{ path('app_nationalite_edit', {'id': nationalite.id}) }}">Modifier</a>
+
+		{{ include('nationalite/_delete_form.html.twig') }}
+	{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Auteur index</h1>
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+
+		<div class="navigation">
+			{{ knp_pagination_render(auteurs) }}
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Prenom</th>
+					<th>Nom</th>
+					<th>Nationalité</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for auteur in auteurs %}
+				<tr>
+					<td>{{ auteur.prenom }}</td>
+					<td>{{ auteur.nom }}</td>
+					<td>{{ auteur.nationalite|country_name }}</td>
+					<td>
+						<form method="post" action="{{ path('app_auteur_delete', {'id': auteur.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+							<a class="btn btn-primary" href="{{ path('app_auteur_show', {'id': auteur.id}) }}">Voir</a>
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ auteur.id) }}">
+							{% if is_granted('ROLE_ADMIN') %}
+								<a class="btn btn-warning" href="{{ path('app_auteur_edit', {'id': auteur.id}) }}">Modifier</a>
+								<button class="btn btn-danger">Supprimer</button>
+							{% endif %}
+						</form>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">Aucun élément existant</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<a class="btn btn-success" href="{{ path('app_auteur_new') }}">Ajouter un nouveau</a>
+	</div>
+{% endblock %}
