@@ -30,7 +30,6 @@ DATABASE_URL=mysql://user:password@localhost:port/bibliothèque
 1. Connectez-vous à l'application avec votre compte utilisateur ou créez-en un nouveau.
 2. Ajoutez des auteurs et des livres à la bibliothèque.
 3. Empruntez des livres et gérez les emprunts en cours.
-4. Consultez les statistiques de la bibliothèque.
 ## Auteur
 Antoine Mura
 
