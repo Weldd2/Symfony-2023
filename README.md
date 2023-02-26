@@ -24,6 +24,8 @@ DATABASE_URL=mysql://user:password@localhost:port/bibliothèque
 4. Créez la base de données avec la commande php bin/console doctrine:database:create
 5. Migrez les schémas de base de données avec la commande php bin/console doctrine:migrations:migrate
 6. Lancez le serveur de développement avec la commande symfony server:start
+7. Bonus : Chargez des fixtures avec la commande : php bin/console doctrine:fixtures:load
+
 ## Utilisation
 1. Connectez-vous à l'application avec votre compte utilisateur ou créez-en un nouveau.
 2. Ajoutez des auteurs et des livres à la bibliothèque.
