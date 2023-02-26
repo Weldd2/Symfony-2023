@@ -20,7 +20,7 @@ L'application permet de gérer les utilisateurs, les auteurs, les livres et les 
 3. Configurez la base de données dans le fichier .env :
 `code`
 DATABASE_URL=mysql://user:password@localhost:port/bibliothèque
-`code`
+`
 4. Créez la base de données avec la commande php bin/console doctrine:database:create
 5. Migrez les schémas de base de données avec la commande php bin/console doctrine:migrations:migrate
 6. Lancez le serveur de développement avec la commande symfony server:start
